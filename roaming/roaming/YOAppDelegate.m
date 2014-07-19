@@ -7,13 +7,24 @@
 //
 
 #import "YOAppDelegate.h"
-
+#import "ViewController.h"
 @implementation YOAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    ViewController *vc = [[ViewController alloc] init];
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:vc];
+    navController.navigationBarHidden = YES;
+    navController.navigationBar.translucent = NO;
+    
+    self.window.rootViewController = navController;
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
