@@ -75,7 +75,6 @@
     if (name) {
         YOBeaconViewController *beaconVC = [[YOBeaconViewController alloc] initWithNibName:@"YOBeaconViewController" bundle:[NSBundle mainBundle] username:username];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:beaconVC];
-        self.loginButtonView.alpha = 0;
         [self presentViewController:nav animated:YES completion:nil];
     }
 }
