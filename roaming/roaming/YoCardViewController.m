@@ -10,7 +10,7 @@
 #import "YOUser.h"
 #import "YOCurrentUserManager.h"
 #import "cardTableViewController.h"
-@interface YoCardViewController ()<UITextFieldDelegate>{
+@interface YoCardViewController ()<UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate>{
     
 }
 
@@ -54,6 +54,46 @@
     return YES;
 }
 
+-(IBAction)choosePictureSource:(id)sender{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:@"Choose Source" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Library",@"Camera", nil];
+    
+    [actionSheet showInView:self.view];
+}
+
+- (IBAction)selectPhoto:(UIButton *)sender {
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
+- (IBAction)takePhoto:(UIButton *)sender {
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    self.profileImage.image = chosenImage;
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     [UIView animateWithDuration:.5 animations:^{
         [self.greyLabelView setFrame:CGRectMake(0, 0, 320, 400)];
@@ -67,12 +107,23 @@
     }];
     return YES;
 }
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0) {
+        [self selectPhoto:nil];
+    }
+    else{
+        [self takePhoto:nil];
+    }
+}
+
 -(IBAction)saveButtonPressed:(id)sender{
     YOUser *currentUsr = [YOUser userWithPFUser:[PFUser currentUser]];
     currentUsr.name = self.name.text;
     currentUsr.fbid = self.result[@"id"];
     currentUsr.titleAndCompany = self.company.text;
     currentUsr.email = self.email.text;
+    [currentUsr setProfilePicture:self.profileImage.image];
     currentUsr.phoneNumber = self.number.text;
     if (!currentUsr.roamingId){
         PFQuery *userCount =[PFQuery queryWithClassName:@"User"];
