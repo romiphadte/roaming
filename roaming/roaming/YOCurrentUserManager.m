@@ -30,6 +30,7 @@
     } else {
         [PFUser logInWithUsernameInBackground:login password:login block:^(PFUser *user, NSError *error) {
             NSLog(@"login: %@", login);
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"LoggedIn" object:self userInfo:nil];
         }];
     }
 }

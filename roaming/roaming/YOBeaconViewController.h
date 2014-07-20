@@ -10,4 +10,6 @@
 
 @interface YOBeaconViewController : UIViewController
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil username:(NSString *)username;
+
 @end

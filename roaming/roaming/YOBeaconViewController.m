@@ -7,18 +7,23 @@
 //
 
 #import "YOBeaconViewController.h"
+#import "UIImage+MDQRCode.h"
 
 @interface YOBeaconViewController ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *qrCodeImageView;
+@property (weak, nonatomic) IBOutlet UIView *qrCodeView;
+@property (strong, nonatomic) NSString *username;
 
 @end
 
 @implementation YOBeaconViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil username:(NSString *)username
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.username = username;
     }
     return self;
 }
@@ -26,13 +31,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.qrCodeImageView.image = [UIImage mdQRCodeForString:self.username size:60];
+    self.qrCodeView.alpha = 1;
 }
 
 @end
