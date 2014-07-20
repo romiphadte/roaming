@@ -46,6 +46,9 @@
 		5E1052B4197C0AFE0032B485 /* test.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5E1052B3197C0AFE0032B485 /* test.gif */; };
 		5E1052B6197C0CEC0032B485 /* rings.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E1052B5197C0CEC0032B485 /* rings.png */; };
 		5E1052B8197C11F90032B485 /* checkMark.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E1052B7197C11F90032B485 /* checkMark.png */; };
+		5E3BBB18197C26740016C935 /* 11.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E3BBB17197C26740016C935 /* 11.png */; };
+		5E3BBB1A197C27130016C935 /* 10.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E3BBB19197C27130016C935 /* 10.png */; };
+		5E3BBB1D197C29E70016C935 /* UIColor+ROA.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3BBB1C197C29E70016C935 /* UIColor+ROA.m */; };
 		5E4CA5F8197B212000CAE956 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4CA5F7197B212000CAE956 /* libicucore.dylib */; };
 		5E4CA5FA197B213500CAE956 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4CA5F9197B213500CAE956 /* libc++.dylib */; };
 		5E4CA5FC197B213C00CAE956 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4CA5FB197B213C00CAE956 /* CFNetwork.framework */; };
@@ -165,6 +168,10 @@
 		5E1052B3197C0AFE0032B485 /* test.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = test.gif; sourceTree = "<group>"; };
 		5E1052B5197C0CEC0032B485 /* rings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rings.png; sourceTree = "<group>"; };
 		5E1052B7197C11F90032B485 /* checkMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkMark.png; sourceTree = "<group>"; };
+		5E3BBB17197C26740016C935 /* 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11.png; sourceTree = "<group>"; };
+		5E3BBB19197C27130016C935 /* 10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 10.png; sourceTree = "<group>"; };
+		5E3BBB1B197C29E70016C935 /* UIColor+ROA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+ROA.h"; path = "../UIColor+ROA.h"; sourceTree = "<group>"; };
+		5E3BBB1C197C29E70016C935 /* UIColor+ROA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+ROA.m"; path = "../UIColor+ROA.m"; sourceTree = "<group>"; };
 		5E4CA5F7197B212000CAE956 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		5E4CA5F9197B213500CAE956 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		5E4CA5FB197B213C00CAE956 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -391,6 +398,8 @@
 				5E090A7C197BA42400BBE343 /* YoCardViewController.xib */,
 				5E1052AE197C097B0032B485 /* UIImage+animatedGIF.h */,
 				5E1052AF197C097B0032B485 /* UIImage+animatedGIF.m */,
+				5E3BBB1B197C29E70016C935 /* UIColor+ROA.h */,
+				5E3BBB1C197C29E70016C935 /* UIColor+ROA.m */,
 				E417FD18197B1EC100F8BDE6 /* Images.xcassets */,
 				E417FD0D197B1EC100F8BDE6 /* Supporting Files */,
 			);
@@ -407,7 +416,9 @@
 				E4D192A3197BAAF90040B0F2 /* BluetoothManager.h */,
 				E4D192A4197BAAF90040B0F2 /* BluetoothManager.m */,
 				5E1052B1197C09F90032B485 /* newyork.gif */,
+				5E3BBB17197C26740016C935 /* 11.png */,
 				5E1052B3197C0AFE0032B485 /* test.gif */,
+				5E3BBB19197C27130016C935 /* 10.png */,
 				E4D1929D197B88D30040B0F2 /* APLDefaults.h */,
 				E4D1929E197B88D30040B0F2 /* APLDefaults.m */,
 				E4D19298197B87FE0040B0F2 /* BeaconViewController.h */,
@@ -526,6 +537,7 @@
 				E4670BD6197BE35D005BD0C5 /* YOTestViewController.xib in Resources */,
 				5E1052B2197C09F90032B485 /* newyork.gif in Resources */,
 				5EFE5D13197B75D300002A23 /* LoginViewController.xib in Resources */,
+				5E3BBB1A197C27130016C935 /* 10.png in Resources */,
 				5E1052B4197C0AFE0032B485 /* test.gif in Resources */,
 				5E1052AD197BD6290032B485 /* save.png in Resources */,
 				072CD293197B7F6C001797BA /* Facebook_Normal.png in Resources */,
@@ -533,6 +545,7 @@
 				5E090A7E197BA42400BBE343 /* YoCardViewController.xib in Resources */,
 				E4D1929C197B87FE0040B0F2 /* BeaconViewController.xib in Resources */,
 				5E01E49D197B28E000747B33 /* ViewController.xib in Resources */,
+				5E3BBB18197C26740016C935 /* 11.png in Resources */,
 				5E1052B8197C11F90032B485 /* checkMark.png in Resources */,
 				5E1052B6197C0CEC0032B485 /* rings.png in Resources */,
 				E417FD19197B1EC100F8BDE6 /* Images.xcassets in Resources */,
@@ -577,6 +590,7 @@
 				076AF5C2197B881B00A23A5B /* UIImageView+WebCache.m in Sources */,
 				5E090A7D197BA42400BBE343 /* YoCardViewController.m in Sources */,
 				073913C4197BA23E00C81BC8 /* UIImage+MDQRCode.m in Sources */,
+				5E3BBB1D197C29E70016C935 /* UIColor+ROA.m in Sources */,
 				073913C3197BA23E00C81BC8 /* split.c in Sources */,
 				073913A5197B93EA00C81BC8 /* YOCurrentUserManager.m in Sources */,
 				076AF5B9197B881B00A23A5B /* SDWebImageDownloader.m in Sources */,

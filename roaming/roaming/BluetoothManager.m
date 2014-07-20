@@ -164,7 +164,7 @@ int lastID=-1;
     NSLog(@"Shortest distance is %.2fm", distance );
     PFPush *push = [PFPush push];
     [push setChannel:[NSString stringWithFormat:@"glass%@", [[PFUser currentUser] objectForKey:@"username"]]];
-    if(closest.length>0){
+    if(closest.length>0 && [closest intValue]!=lastID){
         PFQuery *query = [PFUser query];
         [query whereKey:@"username" equalTo:closest];
         [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
