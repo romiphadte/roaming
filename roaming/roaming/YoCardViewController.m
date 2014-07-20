@@ -45,7 +45,6 @@
     [self.email setDelegate:self];
     [self.number setDelegate:self];
     [self.navigationController setNavigationBarHidden:NO];
-
 }
 
 -(BOOL)prefersStatusBarHidden{
@@ -64,7 +63,7 @@
     [actionSheet showInView:self.view];
 }
 
-- (IBAction)selectPhoto:(UIButton *)sender {
+- (void)selectPhoto {
     
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
@@ -74,7 +73,7 @@
     [self presentViewController:picker animated:YES completion:NULL];
 }
 
-- (IBAction)takePhoto:(UIButton *)sender {
+- (void)takePhoto {
     
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
@@ -113,10 +112,9 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 0) {
-        [self selectPhoto:nil];
-    }
-    else if (buttonIndex == 1){
-        [self takePhoto:nil];
+        [self selectPhoto];
+    } else if (buttonIndex == 1) {
+        [self takePhoto];
     }
     
 }
