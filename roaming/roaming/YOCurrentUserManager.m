@@ -10,6 +10,7 @@
 
 #import "SFHFKeychainUtils.h"
 #import "YOCurrentUserManager.h"
+#import "YOUser.h"
 
 @implementation YOCurrentUserManager
 
@@ -60,6 +61,19 @@
 - (NSString *)loginID {
     return [SFHFKeychainUtils getPasswordForUsername:@"username"
                                       andServiceName:@"username" error:nil];
+}
+
+- (void)saveDataToParseWithYOUser:(YOUser *)user {
+    PFFile *imageFile = [PFFile fileWithData:UIImageJPEGRepresentation(user.profilePicture, 0.5)];
+    [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        PFUser *currentUser = [PFUser currentUser];
+        [currentUser setObject:user.name forKey:@"name"];
+        [currentUser setObject:user.titleAndCompany forKey:@"title_and_company"];
+        [currentUser setObject:user.email forKey:@"email"];
+        [currentUser setObject:user.phoneNumber forKey:@"phone_number"];
+        [currentUser setObject:imageFile forKey:@"profile_picture"];
+        [currentUser saveInBackground];
+    }];
 }
 
 @end

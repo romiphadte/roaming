@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "UIImageView+WebCache.h"
 #import "YOAppDelegate.h"
+#import "YOUser.h"
 
 @interface LoginViewController ()
 
