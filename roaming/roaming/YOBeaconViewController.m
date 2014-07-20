@@ -8,12 +8,14 @@
 
 #import "YOBeaconViewController.h"
 #import "UIImage+MDQRCode.h"
+#import "BluetoothManager.h"
 
 @interface YOBeaconViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *qrCodeImageView;
 @property (weak, nonatomic) IBOutlet UIView *qrCodeView;
 @property (strong, nonatomic) NSString *username;
+@property BluetoothManager *manager;
 
 @end
 
@@ -24,6 +26,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.username = username;
+        _manager=[[BluetoothManager alloc] initWith:[self.username intValue]];
     }
     return self;
 }
@@ -33,6 +36,25 @@
     [super viewDidLoad];
     self.qrCodeImageView.image = [UIImage mdQRCodeForString:self.username size:60];
     self.qrCodeView.alpha = 1;
+}
+
+- (void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    [_manager whenWillAppear];
+}
+
+- (void) viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
+    [_manager whenDidAppear];
+}
+
+- (void) viewWillDisappear:(BOOL)animated{
+    [super viewDidAppear:YES];
+    [_manager whenWillDisappear];
+}
+- (void) viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:YES];
+    [_manager whenDidDisappear];
 }
 
 @end

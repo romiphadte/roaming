@@ -475,7 +475,7 @@
 				ORGANIZATIONNAME = "Romi Phadte";
 				TargetAttributes = {
 					E417FD02197B1EC000F8BDE6 = {
-						DevelopmentTeam = 7WM3QTT9PV;
+						DevelopmentTeam = U5ZX37W26Z;
 					};
 					E417FD1D197B1EC100F8BDE6 = {
 						TestTargetID = E417FD02197B1EC000F8BDE6;

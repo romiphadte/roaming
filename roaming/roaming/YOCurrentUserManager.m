@@ -91,7 +91,7 @@
         [currentUser setObject:imageFile forKey:@"profile_picture"];
     }
     [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"EnteredInfo" object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"EnteredInfo" object:currentUser[@"username"]];
     }];
 }
 

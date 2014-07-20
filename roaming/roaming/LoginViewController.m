@@ -100,7 +100,9 @@
 
 - (void)viewDidLoad {
     [[NSNotificationCenter defaultCenter] addObserverForName:@"EnteredInfo" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
-        [self viewWillAppear:YES];
+        YOBeaconViewController *beaconVC = [[YOBeaconViewController alloc] initWithNibName:@"YOBeaconViewController" bundle:[NSBundle mainBundle] username:note.object];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:beaconVC];
+        [self presentViewController:nav animated:YES completion:nil];
     }];
 }
 
