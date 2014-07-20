@@ -48,6 +48,8 @@
     [self.company setDelegate:self];
     [self.email setDelegate:self];
     [self.number setDelegate:self];
+    [self.navigationController setNavigationBarHidden:NO];
+
 }
 
 -(BOOL)prefersStatusBarHidden{
@@ -112,9 +114,10 @@
     if (buttonIndex == 0) {
         [self selectPhoto:nil];
     }
-    else{
+    else if (buttonIndex == 1){
         [self takePhoto:nil];
     }
+    
 }
 
 -(IBAction)saveButtonPressed:(id)sender{

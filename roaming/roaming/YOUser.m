@@ -7,7 +7,6 @@
 //
 
 #import <Parse/Parse.h>
-
 #import "YOUser.h"
 
 @implementation YOUser

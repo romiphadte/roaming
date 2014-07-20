@@ -65,6 +65,10 @@
     [self.navigationController presentViewController:yoCard animated:YES completion:nil];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
 - (void)permissionGranted {
     [UIView animateWithDuration:0.2 animations:^{
         self.loginButton.alpha = 0;
@@ -94,7 +98,7 @@
                                                                    YoCardViewController *yoCard = [[YoCardViewController alloc]initWithNibName:@"YoCardViewController" bundle:nil];
                                                                    [yoCard setResult:result];
                                                                    [yoCard setFacebookLogin:YES];
-                                                                   [self.navigationController presentViewController:yoCard animated:YES completion:nil];
+                                                                   [self.navigationController pushViewController:yoCard animated:YES];
                                                                }
                                                                else{
                                                                    cardTableViewController *cardVC = [[cardTableViewController alloc]initWithNibName:@"cardTableViewController" bundle:nil];
