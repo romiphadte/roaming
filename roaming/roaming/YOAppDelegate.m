@@ -6,17 +6,18 @@
 //  Copyright (c) 2014 Romi Phadte. All rights reserved.
 //
 
-#import "YOAppDelegate.h"
-#import "ViewController.h"
 #import <Parse/Parse.h>
+
+#import "ViewController.h"
+#import "YOAppDelegate.h"
+#import "YOCurrentUserManager.h"
+#import "SFHFKeychainUtils.h"
 
 @implementation YOAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    
     ViewController *vc = [[ViewController alloc] init];
     
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
@@ -26,8 +27,9 @@
     navController.navigationBar.translucent = NO;
     
     self.window.rootViewController = navController;
-    [Parse setApplicationId:@"zMZaFeegSEKlIj9uIadsiwPbii825lM4p2Vo6BH3"
-                  clientKey:@"ZiHHH9R9JbSxBt6QvExkLJCAP2CsIyGOKj6Wwv1J"];
+    [Parse setApplicationId:@"StG1oEgUANd1r7PbxQgYHpUsZoDXgn2Qh4smmD2z"
+                  clientKey:@"Umxt6JxRkdwLEuF9KSrIrs2PFp6skQjtTTkWiZUm"];
+    [[YOCurrentUserManager sharedCurrentUserManager] login];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|
