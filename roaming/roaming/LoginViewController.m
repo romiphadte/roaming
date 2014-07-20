@@ -11,7 +11,7 @@
 #import "YOAppDelegate.h"
 #import "YOUser.h"
 #import "UIImage+MDQRCode.h"
-#import "BeaconViewController.h"
+#import "YOBeaconViewController.h"
 #import "YOTestViewController.h"
 
 @interface LoginViewController ()
@@ -79,6 +79,7 @@
     NSString *name = [[PFUser currentUser] objectForKey:@"name"];
     NSString *username = [[PFUser currentUser] objectForKey:@"username"];
     if (name) {
+        YOBeaconViewController *beaconVC = [[YOBeaconViewController alloc] initWithNibName:@"YOBeaconViewController" bundle:[NSBundle mainBundle]];
         self.qrCodeImageView.image = [UIImage mdQRCodeForString:username size:60];
         self.loginButtonView.alpha = 0;
         self.qrCodeView.alpha = 1;

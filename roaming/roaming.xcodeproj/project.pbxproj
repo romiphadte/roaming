@@ -68,6 +68,8 @@
 		E417FD22197B1EC100F8BDE6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E417FD0A197B1EC000F8BDE6 /* UIKit.framework */; };
 		E417FD2A197B1EC100F8BDE6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E417FD28197B1EC100F8BDE6 /* InfoPlist.strings */; };
 		E417FD2C197B1EC100F8BDE6 /* roamingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E417FD2B197B1EC100F8BDE6 /* roamingTests.m */; };
+		E42C7A13197C06DD001C3286 /* YOBeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E42C7A11197C06DD001C3286 /* YOBeaconViewController.m */; };
+		E42C7A14197C06DD001C3286 /* YOBeaconViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E42C7A12197C06DD001C3286 /* YOBeaconViewController.xib */; };
 		E4670BD5197BE35D005BD0C5 /* YOTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4670BD3197BE35D005BD0C5 /* YOTestViewController.m */; };
 		E4670BD6197BE35D005BD0C5 /* YOTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4670BD4197BE35D005BD0C5 /* YOTestViewController.xib */; };
 		E4D1929B197B87FE0040B0F2 /* BeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D19299197B87FE0040B0F2 /* BeaconViewController.m */; };
@@ -184,6 +186,9 @@
 		E417FD27197B1EC100F8BDE6 /* roamingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "roamingTests-Info.plist"; sourceTree = "<group>"; };
 		E417FD29197B1EC100F8BDE6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E417FD2B197B1EC100F8BDE6 /* roamingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = roamingTests.m; sourceTree = "<group>"; };
+		E42C7A10197C06DD001C3286 /* YOBeaconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YOBeaconViewController.h; sourceTree = "<group>"; };
+		E42C7A11197C06DD001C3286 /* YOBeaconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YOBeaconViewController.m; sourceTree = "<group>"; };
+		E42C7A12197C06DD001C3286 /* YOBeaconViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YOBeaconViewController.xib; sourceTree = "<group>"; };
 		E4670BD2197BE35D005BD0C5 /* YOTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YOTestViewController.h; sourceTree = "<group>"; };
 		E4670BD3197BE35D005BD0C5 /* YOTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YOTestViewController.m; sourceTree = "<group>"; };
 		E4670BD4197BE35D005BD0C5 /* YOTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YOTestViewController.xib; sourceTree = "<group>"; };
@@ -367,6 +372,9 @@
 				5EFE5D0F197B75D300002A23 /* LoginViewController.h */,
 				5EFE5D10197B75D300002A23 /* LoginViewController.m */,
 				5EFE5D11197B75D300002A23 /* LoginViewController.xib */,
+				E42C7A10197C06DD001C3286 /* YOBeaconViewController.h */,
+				E42C7A11197C06DD001C3286 /* YOBeaconViewController.m */,
+				E42C7A12197C06DD001C3286 /* YOBeaconViewController.xib */,
 				5E090A7A197BA42400BBE343 /* YoCardViewController.h */,
 				5E090A7B197BA42400BBE343 /* YoCardViewController.m */,
 				5E090A7C197BA42400BBE343 /* YoCardViewController.xib */,
@@ -507,6 +515,7 @@
 				E4D1929C197B87FE0040B0F2 /* BeaconViewController.xib in Resources */,
 				5E01E49D197B28E000747B33 /* ViewController.xib in Resources */,
 				E417FD19197B1EC100F8BDE6 /* Images.xcassets in Resources */,
+				E42C7A14197C06DD001C3286 /* YOBeaconViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,6 +561,7 @@
 				076AF5C3197B881B00A23A5B /* UIView+WebCacheOperation.m in Sources */,
 				076AF5BD197B881B00A23A5B /* UIButton+WebCache.m in Sources */,
 				073913AC197B97D400C81BC8 /* YOUser.m in Sources */,
+				E42C7A13197C06DD001C3286 /* YOBeaconViewController.m in Sources */,
 				076AF5B4197B881B00A23A5B /* MKAnnotationView+WebCache.m in Sources */,
 				076AF5B5197B881B00A23A5B /* NSData+ImageContentType.m in Sources */,
 				E4D192A5197BAAF90040B0F2 /* BluetoothManager.m in Sources */,
