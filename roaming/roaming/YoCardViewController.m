@@ -56,7 +56,12 @@
     return YES;
 }
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
+}
+
 -(IBAction)choosePictureSource:(id)sender{
+    [self.view endEditing:YES];
     UIActionSheet *actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:@"Choose Source" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Library",@"Camera", nil];
     
@@ -98,7 +103,7 @@
 }
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     [UIView animateWithDuration:.5 animations:^{
-        [self.greyLabelView setFrame:CGRectMake(0, 0, 320, 400)];
+        [self.greyLabelView setFrame:CGRectMake(0, 0, 320, 640)];
     }];
     return YES;
 }
@@ -122,19 +127,25 @@
 
 -(IBAction)saveButtonPressed:(id)sender{
     YOUser *currentUsr = [YOUser userWithPFUser:[PFUser currentUser]];
-    currentUsr.name = self.name.text;
-    currentUsr.fbid = self.result[@"id"];
-    currentUsr.titleAndCompany = self.company.text;
-    currentUsr.email = self.email.text;
-    [currentUsr setProfilePicture:self.profileImage.image];
-    currentUsr.phoneNumber = self.number.text;
-    if (!currentUsr.roamingId){
-        PFQuery *userCount =[PFQuery queryWithClassName:@"User"];
-        currentUsr.roamingId = [NSString stringWithFormat:@"%i", [userCount countObjects]+1];
+    if (self.name.text.length > 0 && self.company.text.length > 0 && self.number.text.length > 0 && self.email.text.length > 0) {
+        currentUsr.name = self.name.text;
+        currentUsr.fbid = self.result[@"id"];
+        currentUsr.titleAndCompany = self.company.text;
+        currentUsr.email = self.email.text;
+        [currentUsr setProfilePicture:self.profileImage.image];
+        currentUsr.phoneNumber = self.number.text;
+        if (!currentUsr.roamingId){
+            PFQuery *userCount =[PFQuery queryWithClassName:@"User"];
+            currentUsr.roamingId = [NSString stringWithFormat:@"%i", [userCount countObjects]+1];
+        }
+        [[YOCurrentUserManager sharedCurrentUserManager]saveDataToParseWithYOUser:currentUsr];
+        cardTableViewController *cardVC = [[cardTableViewController alloc]initWithNibName:@"cardTableViewController" bundle:nil];
+        [self presentViewController:cardVC animated:YES completion:nil];
     }
-    [[YOCurrentUserManager sharedCurrentUserManager]saveDataToParseWithYOUser:currentUsr];
-    cardTableViewController *cardVC = [[cardTableViewController alloc]initWithNibName:@"cardTableViewController" bundle:nil];
-    [self presentViewController:cardVC animated:YES completion:nil];
+    else{
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Fill out information" message:@"The information you've provided is incomplete." delegate:self cancelButtonTitle:@"okay" otherButtonTitles:nil, nil];
+        [alert show];
+    }
 }
 - (void)didReceiveMemoryWarning
 {
