@@ -35,20 +35,12 @@
                 [SFHFKeychainUtils storeUsername:@"username" andPassword:userID
                                   forServiceName:@"username" updateExisting:YES error:nil];
                 [PFUser logInWithUsernameInBackground:userID password:userID block:^(PFUser *user, NSError *error) {
-                    if (user) {
-                        [[PFInstallation currentInstallation] setValue:user forKey:@"user"];
-                        [[PFInstallation currentInstallation] saveInBackground];
-                    }
                     NSLog(@"register: %@", userID);
                 }];
             }
         }];
     } else {
         [PFUser logInWithUsernameInBackground:login password:login block:^(PFUser *user, NSError *error) {
-            if (user) {
-                [[PFInstallation currentInstallation] setValue:user forKey:@"user"];
-                [[PFInstallation currentInstallation] saveInBackground];
-            }
             NSLog(@"login: %@", login);
         }];
     }
