@@ -66,7 +66,7 @@
 -(IBAction)loginManually:(id)sender{
     YoCardViewController *yoCard = [[YoCardViewController alloc]initWithNibName:@"YoCardViewController" bundle:nil];
     [yoCard setFacebookLogin:NO];
-    [self.navigationController presentViewController:yoCard animated:YES completion:nil];
+    [self.navigationController pushViewController:yoCard animated:YES];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
