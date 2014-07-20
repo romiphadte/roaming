@@ -40,13 +40,12 @@
 		5E01E49D197B28E000747B33 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E01E49B197B28E000747B33 /* ViewController.xib */; };
 		5E090A7D197BA42400BBE343 /* YoCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E090A7B197BA42400BBE343 /* YoCardViewController.m */; };
 		5E090A7E197BA42400BBE343 /* YoCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E090A7C197BA42400BBE343 /* YoCardViewController.xib */; };
+		5E1052AD197BD6290032B485 /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E1052AC197BD6290032B485 /* save.png */; };
 		5E4CA5F8197B212000CAE956 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4CA5F7197B212000CAE956 /* libicucore.dylib */; };
 		5E4CA5FA197B213500CAE956 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4CA5F9197B213500CAE956 /* libc++.dylib */; };
 		5E4CA5FC197B213C00CAE956 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4CA5FB197B213C00CAE956 /* CFNetwork.framework */; };
 		5E4CA5FE197B214100CAE956 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4CA5FD197B214100CAE956 /* Security.framework */; };
 		5E4CA600197B215700CAE956 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4CA5FF197B215700CAE956 /* SystemConfiguration.framework */; };
-		5EC936D1197BB37000116718 /* cardTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC936CF197BB37000116718 /* cardTableViewController.m */; };
-		5EC936D2197BB37000116718 /* cardTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EC936D0197BB37000116718 /* cardTableViewController.xib */; };
 		5EFE5CFF197B527200002A23 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EFE5CFE197B527200002A23 /* Parse.framework */; };
 		5EFE5D01197B529500002A23 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EFE5D00197B529500002A23 /* AudioToolbox.framework */; };
 		5EFE5D03197B52A300002A23 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EFE5D02197B52A300002A23 /* CoreLocation.framework */; };
@@ -146,14 +145,12 @@
 		5E090A7A197BA42400BBE343 /* YoCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YoCardViewController.h; sourceTree = "<group>"; };
 		5E090A7B197BA42400BBE343 /* YoCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YoCardViewController.m; sourceTree = "<group>"; };
 		5E090A7C197BA42400BBE343 /* YoCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YoCardViewController.xib; sourceTree = "<group>"; };
+		5E1052AC197BD6290032B485 /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save.png; sourceTree = "<group>"; };
 		5E4CA5F7197B212000CAE956 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		5E4CA5F9197B213500CAE956 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		5E4CA5FB197B213C00CAE956 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		5E4CA5FD197B214100CAE956 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		5E4CA5FF197B215700CAE956 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		5EC936CE197BB37000116718 /* cardTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cardTableViewController.h; sourceTree = "<group>"; };
-		5EC936CF197BB37000116718 /* cardTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cardTableViewController.m; sourceTree = "<group>"; };
-		5EC936D0197BB37000116718 /* cardTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = cardTableViewController.xib; sourceTree = "<group>"; };
 		5EFE5CFE197B527200002A23 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		5EFE5D00197B529500002A23 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		5EFE5D02197B52A300002A23 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -357,9 +354,6 @@
 				5E090A7A197BA42400BBE343 /* YoCardViewController.h */,
 				5E090A7B197BA42400BBE343 /* YoCardViewController.m */,
 				5E090A7C197BA42400BBE343 /* YoCardViewController.xib */,
-				5EC936CE197BB37000116718 /* cardTableViewController.h */,
-				5EC936CF197BB37000116718 /* cardTableViewController.m */,
-				5EC936D0197BB37000116718 /* cardTableViewController.xib */,
 				E417FD18197B1EC100F8BDE6 /* Images.xcassets */,
 				E417FD0D197B1EC100F8BDE6 /* Supporting Files */,
 			);
@@ -370,6 +364,7 @@
 			isa = PBXGroup;
 			children = (
 				072CD291197B7F6C001797BA /* Facebook_Normal.png */,
+				5E1052AC197BD6290032B485 /* save.png */,
 				072CD292197B7F6C001797BA /* Facebook_Pressed.png */,
 				E417FD0E197B1EC100F8BDE6 /* roaming-Info.plist */,
 				E417FD0F197B1EC100F8BDE6 /* InfoPlist.strings */,
@@ -478,10 +473,10 @@
 			files = (
 				072CD294197B7F6C001797BA /* Facebook_Pressed.png in Resources */,
 				5EFE5D13197B75D300002A23 /* LoginViewController.xib in Resources */,
+				5E1052AD197BD6290032B485 /* save.png in Resources */,
 				072CD293197B7F6C001797BA /* Facebook_Normal.png in Resources */,
 				E417FD11197B1EC100F8BDE6 /* InfoPlist.strings in Resources */,
 				5E090A7E197BA42400BBE343 /* YoCardViewController.xib in Resources */,
-				5EC936D2197BB37000116718 /* cardTableViewController.xib in Resources */,
 				5E01E49D197B28E000747B33 /* ViewController.xib in Resources */,
 				E417FD19197B1EC100F8BDE6 /* Images.xcassets in Resources */,
 			);
@@ -529,7 +524,6 @@
 				076AF5BD197B881B00A23A5B /* UIButton+WebCache.m in Sources */,
 				073913AC197B97D400C81BC8 /* YOUser.m in Sources */,
 				076AF5B4197B881B00A23A5B /* MKAnnotationView+WebCache.m in Sources */,
-				5EC936D1197BB37000116718 /* cardTableViewController.m in Sources */,
 				076AF5B5197B881B00A23A5B /* NSData+ImageContentType.m in Sources */,
 				E417FD13197B1EC100F8BDE6 /* main.m in Sources */,
 				076AF5BB197B881B00A23A5B /* SDWebImageManager.m in Sources */,

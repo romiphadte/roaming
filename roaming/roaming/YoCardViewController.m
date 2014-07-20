@@ -9,7 +9,7 @@
 #import "YoCardViewController.h"
 #import "YOUser.h"
 #import "YOCurrentUserManager.h"
-#import "cardTableViewController.h"
+
 @interface YoCardViewController ()<UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate>{
     
 }
@@ -32,13 +32,9 @@
     [super viewDidLoad];
     if (self.facebookLogin){
         [self.profileImage setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?type=small&width=640&height=640",self.result[@"id"]]]]]];
-        [self.email setText:self.result[@"email"]];
+        [self.email setText:self.result[@"email_address"]];
         [self.name setText:self.result[@"name"]];
     }
-    else{
-        
-    }
-    
     YOUser *currentUsr = [YOUser userWithPFUser:[PFUser currentUser]];
     if (currentUsr.name) [self.name setText:currentUsr.name];
     if (currentUsr.titleAndCompany) [self.company setText:currentUsr.titleAndCompany];
@@ -56,7 +52,12 @@
     return YES;
 }
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
+}
+
 -(IBAction)choosePictureSource:(id)sender{
+    [self.view endEditing:YES];
     UIActionSheet *actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:@"Choose Source" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Library",@"Camera", nil];
     
@@ -98,7 +99,7 @@
 }
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     [UIView animateWithDuration:.5 animations:^{
-        [self.greyLabelView setFrame:CGRectMake(0, 0, 320, 400)];
+        [self.greyLabelView setFrame:CGRectMake(0, 0, 320, 640)];
     }];
     return YES;
 }
@@ -122,19 +123,20 @@
 
 -(IBAction)saveButtonPressed:(id)sender{
     YOUser *currentUsr = [YOUser userWithPFUser:[PFUser currentUser]];
-    currentUsr.name = self.name.text;
-    currentUsr.fbid = self.result[@"id"];
-    currentUsr.titleAndCompany = self.company.text;
-    currentUsr.email = self.email.text;
-    [currentUsr setProfilePicture:self.profileImage.image];
-    currentUsr.phoneNumber = self.number.text;
-    if (!currentUsr.roamingId){
-        PFQuery *userCount =[PFQuery queryWithClassName:@"User"];
-        currentUsr.roamingId = [NSString stringWithFormat:@"%i", [userCount countObjects]+1];
+    if (self.name.text.length > 0 && self.company.text.length > 0 && self.number.text.length > 0 && self.email.text.length > 0) {
+        currentUsr.name = self.name.text;
+        currentUsr.fbid = self.result[@"id"];
+        currentUsr.titleAndCompany = self.company.text;
+        currentUsr.email = self.email.text;
+        currentUsr.profilePicture = self.profileImage.image;
+        currentUsr.phoneNumber = self.number.text;
+        [[YOCurrentUserManager sharedCurrentUserManager] saveDataToParseWithYOUser:currentUsr];
+        [self dismissViewControllerAnimated:YES completion:nil];
     }
-    [[YOCurrentUserManager sharedCurrentUserManager]saveDataToParseWithYOUser:currentUsr];
-    cardTableViewController *cardVC = [[cardTableViewController alloc]initWithNibName:@"cardTableViewController" bundle:nil];
-    [self presentViewController:cardVC animated:YES completion:nil];
+    else{
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Fill out information" message:@"The information you've provided is incomplete." delegate:self cancelButtonTitle:@"okay" otherButtonTitles:nil, nil];
+        [alert show];
+    }
 }
 - (void)didReceiveMemoryWarning
 {

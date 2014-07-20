@@ -11,6 +11,7 @@
 #import "ViewController.h"
 #import "YOAppDelegate.h"
 #import "YOCurrentUserManager.h"
+#import "SFHFKeychainUtils.h"
 
 @implementation YOAppDelegate
 
@@ -26,8 +27,8 @@
     navController.navigationBar.translucent = NO;
     
     self.window.rootViewController = navController;
-    [Parse setApplicationId:@"zMZaFeegSEKlIj9uIadsiwPbii825lM4p2Vo6BH3"
-                  clientKey:@"ZiHHH9R9JbSxBt6QvExkLJCAP2CsIyGOKj6Wwv1J"];
+    [Parse setApplicationId:@"StG1oEgUANd1r7PbxQgYHpUsZoDXgn2Qh4smmD2z"
+                  clientKey:@"Umxt6JxRkdwLEuF9KSrIrs2PFp6skQjtTTkWiZUm"];
     [[YOCurrentUserManager sharedCurrentUserManager] login];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

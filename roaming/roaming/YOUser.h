@@ -16,7 +16,6 @@
 @property (strong, nonatomic) NSString *email;
 @property (strong, nonatomic) NSString *fbid;
 @property (strong, nonatomic) NSString *phoneNumber;
-@property (strong, nonatomic) NSString *roamingId;
 // If uploading user
 @property (strong, nonatomic) UIImage *profilePicture;
 // If retrieving user
