@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import <Firebase/Firebase.h>
 @interface ViewController ()
 
 @end
@@ -26,15 +25,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    Firebase* myRootRef = [[Firebase alloc] initWithUrl:@"http://greylocku.firebaseIO.com"];
+    LoginViewController *loginVC = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
     
-    // Write data to Firebase
-    [myRootRef setValue:@"set-value-here"];
-    
-    // Read data and react to changes
-    [myRootRef observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
-        NSLog(@"%@ -> %@", snapshot.name, snapshot.value);
-    }];
+    [self.navigationController pushViewController:loginVC animated:YES];
     // Do any additional setup after loading the view from its nib.
 }
 
