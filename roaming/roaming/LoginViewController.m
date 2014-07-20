@@ -13,6 +13,7 @@
 #import "UIImage+MDQRCode.h"
 #import "BeaconViewController.h"
 #import "YOTestViewController.h"
+#import "UIImage+animatedGIF.h"
 
 @interface LoginViewController ()
 
@@ -104,9 +105,15 @@
 }
 
 - (void)viewDidLoad {
+    [self loadBackground];
     [[NSNotificationCenter defaultCenter] addObserverForName:@"EnteredInfo" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
         [self viewWillAppear:YES];
     }];
+}
+
+-(void)loadBackground{
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"newyork" withExtension:@"gif"];
+    self.backgroundImage.image = [UIImage animatedImageWithAnimatedGIFData:[NSData dataWithContentsOfURL:url]];
 }
 
 @end

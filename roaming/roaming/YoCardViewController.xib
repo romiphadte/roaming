@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6154.21" systemVersion="14A283o" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="14A283o" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.13"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YoCardViewController">
@@ -25,25 +25,25 @@
                     <color key="backgroundColor" red="0.61176472900000001" green="0.61176472900000001" blue="0.61176472900000001" alpha="1" colorSpace="deviceRGB"/>
                 </imageView>
                 <view appearanceType="aqua" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H7v-7t-tcX">
-                    <rect key="frame" x="0.0" y="318" width="320" height="191"/>
+                    <rect key="frame" x="0.0" y="318" width="320" height="153"/>
                     <subviews>
                         <textField appearanceType="aqua" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qYd-t2-gFu">
-                            <rect key="frame" x="20" y="13" width="280" height="30"/>
+                            <rect key="frame" x="20" y="5" width="280" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <textField appearanceType="aqua" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title, Company" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O8d-02-Zbk">
-                            <rect key="frame" x="20" y="56" width="280" height="30"/>
+                            <rect key="frame" x="20" y="39" width="280" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <textField appearanceType="aqua" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SnK-MV-9wC">
-                            <rect key="frame" x="20" y="147" width="280" height="30"/>
+                            <rect key="frame" x="20" y="109" width="280" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                         </textField>
                         <textField appearanceType="aqua" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ja-gA-jLb">
-                            <rect key="frame" x="20" y="102" width="280" height="30"/>
+                            <rect key="frame" x="20" y="74" width="280" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                         </textField>
@@ -51,9 +51,9 @@
                     <color key="backgroundColor" white="0.96360585387323938" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3pL-LK-2DM">
-                    <rect key="frame" x="0.0" y="509" width="320" height="59"/>
+                    <rect key="frame" x="0.0" y="465" width="320" height="59"/>
                     <color key="backgroundColor" red="0.37254902719999999" green="0.71764707569999997" blue="0.63137257099999999" alpha="1" colorSpace="deviceRGB"/>
-                    <state key="normal" title="Save">
+                    <state key="normal">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -70,6 +70,10 @@
                         <action selector="choosePictureSource:" destination="-1" eventType="touchUpInside" id="YE4-GH-sbd"/>
                     </connections>
                 </button>
+                <imageView appearanceType="aqua" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="checkMark.png" translatesAutoresizingMaskIntoConstraints="NO" id="fr3-yY-Qhy">
+                    <rect key="frame" x="135" y="470" width="50" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -77,6 +81,7 @@
         </view>
     </objects>
     <resources>
+        <image name="checkMark.png" width="930" height="921"/>
         <image name="save.png" width="782" height="728"/>
     </resources>
 </document>

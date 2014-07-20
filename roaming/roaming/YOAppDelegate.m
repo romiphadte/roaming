@@ -17,6 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [SFHFKeychainUtils deleteItemForUsername:@"username" andServiceName:@"username" error:nil];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     ViewController *vc = [[ViewController alloc] init];
     
