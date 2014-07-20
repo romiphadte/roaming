@@ -36,6 +36,12 @@
 		E417FD22197B1EC100F8BDE6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E417FD0A197B1EC000F8BDE6 /* UIKit.framework */; };
 		E417FD2A197B1EC100F8BDE6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E417FD28197B1EC100F8BDE6 /* InfoPlist.strings */; };
 		E417FD2C197B1EC100F8BDE6 /* roamingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E417FD2B197B1EC100F8BDE6 /* roamingTests.m */; };
+		E4670BD5197BE35D005BD0C5 /* YOTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4670BD3197BE35D005BD0C5 /* YOTestViewController.m */; };
+		E4670BD6197BE35D005BD0C5 /* YOTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4670BD4197BE35D005BD0C5 /* YOTestViewController.xib */; };
+		E4D1929B197B87FE0040B0F2 /* BeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D19299197B87FE0040B0F2 /* BeaconViewController.m */; };
+		E4D1929C197B87FE0040B0F2 /* BeaconViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4D1929A197B87FE0040B0F2 /* BeaconViewController.xib */; };
+		E4D1929F197B88D30040B0F2 /* APLDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D1929E197B88D30040B0F2 /* APLDefaults.m */; };
+		E4D192A5197BAAF90040B0F2 /* BluetoothManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D192A4197BAAF90040B0F2 /* BluetoothManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +90,16 @@
 		E417FD27197B1EC100F8BDE6 /* roamingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "roamingTests-Info.plist"; sourceTree = "<group>"; };
 		E417FD29197B1EC100F8BDE6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E417FD2B197B1EC100F8BDE6 /* roamingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = roamingTests.m; sourceTree = "<group>"; };
+		E4670BD2197BE35D005BD0C5 /* YOTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YOTestViewController.h; sourceTree = "<group>"; };
+		E4670BD3197BE35D005BD0C5 /* YOTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YOTestViewController.m; sourceTree = "<group>"; };
+		E4670BD4197BE35D005BD0C5 /* YOTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YOTestViewController.xib; sourceTree = "<group>"; };
+		E4D19298197B87FE0040B0F2 /* BeaconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconViewController.h; sourceTree = "<group>"; };
+		E4D19299197B87FE0040B0F2 /* BeaconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconViewController.m; sourceTree = "<group>"; };
+		E4D1929A197B87FE0040B0F2 /* BeaconViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BeaconViewController.xib; sourceTree = "<group>"; };
+		E4D1929D197B88D30040B0F2 /* APLDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLDefaults.h; sourceTree = "<group>"; };
+		E4D1929E197B88D30040B0F2 /* APLDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLDefaults.m; sourceTree = "<group>"; };
+		E4D192A3197BAAF90040B0F2 /* BluetoothManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BluetoothManager.h; sourceTree = "<group>"; };
+		E4D192A4197BAAF90040B0F2 /* BluetoothManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BluetoothManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +202,16 @@
 		E417FD0D197B1EC100F8BDE6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E4670BD2197BE35D005BD0C5 /* YOTestViewController.h */,
+				E4670BD3197BE35D005BD0C5 /* YOTestViewController.m */,
+				E4670BD4197BE35D005BD0C5 /* YOTestViewController.xib */,
+				E4D192A3197BAAF90040B0F2 /* BluetoothManager.h */,
+				E4D192A4197BAAF90040B0F2 /* BluetoothManager.m */,
+				E4D1929D197B88D30040B0F2 /* APLDefaults.h */,
+				E4D1929E197B88D30040B0F2 /* APLDefaults.m */,
+				E4D19298197B87FE0040B0F2 /* BeaconViewController.h */,
+				E4D19299197B87FE0040B0F2 /* BeaconViewController.m */,
+				E4D1929A197B87FE0040B0F2 /* BeaconViewController.xib */,
 				E417FD0E197B1EC100F8BDE6 /* roaming-Info.plist */,
 				E417FD0F197B1EC100F8BDE6 /* InfoPlist.strings */,
 				E417FD12197B1EC100F8BDE6 /* main.m */,
@@ -288,8 +314,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4670BD6197BE35D005BD0C5 /* YOTestViewController.xib in Resources */,
 				5EFE5D13197B75D300002A23 /* LoginViewController.xib in Resources */,
 				E417FD11197B1EC100F8BDE6 /* InfoPlist.strings in Resources */,
+				E4D1929C197B87FE0040B0F2 /* BeaconViewController.xib in Resources */,
 				5E01E49D197B28E000747B33 /* ViewController.xib in Resources */,
 				E417FD19197B1EC100F8BDE6 /* Images.xcassets in Resources */,
 			);
@@ -310,9 +338,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4670BD5197BE35D005BD0C5 /* YOTestViewController.m in Sources */,
 				5EFE5D12197B75D300002A23 /* LoginViewController.m in Sources */,
 				5E01E49C197B28E000747B33 /* ViewController.m in Sources */,
 				E417FD17197B1EC100F8BDE6 /* YOAppDelegate.m in Sources */,
+				E4D192A5197BAAF90040B0F2 /* BluetoothManager.m in Sources */,
+				E4D1929F197B88D30040B0F2 /* APLDefaults.m in Sources */,
+				E4D1929B197B87FE0040B0F2 /* BeaconViewController.m in Sources */,
 				E417FD13197B1EC100F8BDE6 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

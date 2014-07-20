@@ -8,6 +8,9 @@
 
 #import "LoginViewController.h"
 #import "YOAppDelegate.h"
+#import "BeaconViewController.h"
+#import "YOTestViewController.h"
+
 @interface LoginViewController ()
 
 @end
@@ -52,9 +55,21 @@
          }
      }];
 }
+- (IBAction)example:(id)sender {
+    YOTestViewController* new=[[YOTestViewController alloc] initWithNibName:@"YOTestViewController" bundle:nil];
+    [self presentViewController:new animated:YES completion:^{
+        NSLog(@"Showing test Controller");
+    }];
+}
 
 -(IBAction)login:(id)sender{
     [self grantFacebookPermission];
+}
+- (IBAction)goToBeacon:(id)sender {
+    BeaconViewController* new=[[BeaconViewController alloc]init]; //initWithNibName:@"YOTestViewController.h" bundle:nil ];
+    [self presentViewController:new animated:YES completion:^{
+        NSLog(@"Showing BeaconViewController");
+    }];
 }
 
 -(void)permissionGranted{
