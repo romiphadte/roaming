@@ -76,4 +76,12 @@
     }];
 }
 
+- (void)getYOUserWithID:(NSString *)userID completion:(void (^)(YOUser *user))completion {
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"username" containsString:userID];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        completion([YOUser userWithPFUser:(PFUser *)object]);
+    }];
+}
+
 @end

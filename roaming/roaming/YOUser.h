@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
 
 @interface YOUser : NSObject
 
@@ -14,6 +15,11 @@
 @property (strong, nonatomic) NSString *titleAndCompany;
 @property (strong, nonatomic) NSString *email;
 @property (strong, nonatomic) NSString *phoneNumber;
+// If uploading user
 @property (strong, nonatomic) UIImage *profilePicture;
+// If retrieving user
+@property (strong, nonatomic) PFFile *imageFile;
+
++ (YOUser *)userWithPFUser:(PFUser *)user;
 
 @end

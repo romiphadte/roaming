@@ -15,5 +15,6 @@
 
 - (void)login;
 - (void)saveDataToParseWithYOUser:(YOUser *)user;
+- (void)getYOUserWithID:(NSString *)userID completion:(void (^)(YOUser *user))completion;
 
 @end
