@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import "YoCardViewController.h"
 
 @interface LoginViewController : UIViewController
 

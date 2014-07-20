@@ -9,23 +9,19 @@
 #import "LoginViewController.h"
 #import "UIImageView+WebCache.h"
 #import "YOAppDelegate.h"
+#import "YOUser.h"
+#import "UIImage+MDQRCode.h"
 
 @interface LoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
-@property (weak, nonatomic) IBOutlet UIView *loggedInUserView;
-@property (weak, nonatomic) IBOutlet UIImageView *loggedInUserProfilePicture;
-@property (weak, nonatomic) IBOutlet UILabel *loggedInUserName;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *imageLoadingIndicator;
+@property (weak, nonatomic) IBOutlet UIImageView *qrCodeImageView;
+@property (weak, nonatomic) IBOutlet UIView *qrCodeView;
+@property (weak, nonatomic) IBOutlet UIView *loginButtonView;
 
 @end
 
 @implementation LoginViewController
-
-- (void)viewDidLoad {
-    self.loggedInUserProfilePicture.layer.cornerRadius = CGRectGetHeight(self.loggedInUserProfilePicture.frame)/2.0;
-    self.loggedInUserProfilePicture.layer.masksToBounds = YES;
-}
 
 - (void)grantFacebookPermission {
     [self.view setUserInteractionEnabled:NO];
@@ -58,31 +54,31 @@
     [self grantFacebookPermission];
 }
 
+-(IBAction)loginManually:(id)sender{
+    YoCardViewController *yoCard = [[YoCardViewController alloc]initWithNibName:@"YoCardViewController" bundle:nil];
+    [yoCard setFacebookLogin:NO];
+    [self.navigationController presentViewController:yoCard animated:YES completion:nil];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:YES];
+    NSString *name = [[PFUser currentUser] objectForKey:@"name"];
+    NSString *username = [[PFUser currentUser] objectForKey:@"username"];
+    if (name) {
+        self.qrCodeImageView.image = [UIImage mdQRCodeForString:username size:60];
+        self.loginButtonView.alpha = 0;
+        self.qrCodeView.alpha = 1;
+    }
+}
+
 - (void)permissionGranted {
-    [UIView animateWithDuration:0.2 animations:^{
-        self.loginButton.alpha = 0;
-        self.loggedInUserView.alpha = 1;
-    }];
     [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
         if (result) {
-            NSString *fbID = result[@"id"];
-            NSString *profilePictureURLString = [NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?type=large", fbID];
-            self.loggedInUserName.text = result[@"name"];
-            [self.imageLoadingIndicator startAnimating];
-            [self.loggedInUserProfilePicture sd_setImageWithURL:[NSURL URLWithString:profilePictureURLString]
-                                               placeholderImage:nil options:SDWebImageCacheMemoryOnly
-                                                       progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-                                                           if (receivedSize == expectedSize) {
-                                                               [self.imageLoadingIndicator stopAnimating];
-                                                           }
-                                                       } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                                                           [UIView animateWithDuration:0.2 animations:^{
-                                                               self.loggedInUserProfilePicture.alpha = 1;
-                                                               self.imageLoadingIndicator.alpha = 0;
-                                                           } completion:^(BOOL finished) {
-                                                               [self.imageLoadingIndicator stopAnimating];
-                                                           }];
-                                                       }];
+            YoCardViewController *yoCard = [[YoCardViewController alloc] initWithNibName:@"YoCardViewController"
+                                                                                  bundle:nil];
+            [yoCard setResult:result];
+            [yoCard setFacebookLogin:YES];
+            [self.navigationController pushViewController:yoCard animated:YES];
         } else {
             NSLog(@"error! Some problem occured: %@", [error description]);
             if (error.code == 400) {
@@ -90,6 +86,12 @@
                 [alert show];
             }
         }
+    }];
+}
+
+- (void)viewDidLoad {
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"EnteredInfo" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        [self viewWillAppear:YES];
     }];
 }
 
