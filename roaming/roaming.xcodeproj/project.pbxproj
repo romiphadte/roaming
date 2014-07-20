@@ -389,6 +389,9 @@
 				E4D19298197B87FE0040B0F2 /* BeaconViewController.h */,
 				E4D19299197B87FE0040B0F2 /* BeaconViewController.m */,
 				E4D1929A197B87FE0040B0F2 /* BeaconViewController.xib */,
+				072CD291197B7F6C001797BA /* Facebook_Normal.png */,
+				5E1052AC197BD6290032B485 /* save.png */,
+				072CD292197B7F6C001797BA /* Facebook_Pressed.png */,
 				E417FD0E197B1EC100F8BDE6 /* roaming-Info.plist */,
 				E417FD0F197B1EC100F8BDE6 /* InfoPlist.strings */,
 				E417FD12197B1EC100F8BDE6 /* main.m */,
@@ -464,7 +467,7 @@
 				ORGANIZATIONNAME = "Romi Phadte";
 				TargetAttributes = {
 					E417FD02197B1EC000F8BDE6 = {
-						DevelopmentTeam = 7WM3QTT9PV;
+						DevelopmentTeam = U5ZX37W26Z;
 					};
 					E417FD1D197B1EC100F8BDE6 = {
 						TestTargetID = E417FD02197B1EC000F8BDE6;
@@ -494,11 +497,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				072CD294197B7F6C001797BA /* Facebook_Pressed.png in Resources */,
 				E4670BD6197BE35D005BD0C5 /* YOTestViewController.xib in Resources */,
 				5EFE5D13197B75D300002A23 /* LoginViewController.xib in Resources */,
 				5E1052AD197BD6290032B485 /* save.png in Resources */,
 				072CD293197B7F6C001797BA /* Facebook_Normal.png in Resources */,
 				E417FD11197B1EC100F8BDE6 /* InfoPlist.strings in Resources */,
+				5E090A7E197BA42400BBE343 /* YoCardViewController.xib in Resources */,
 				E4D1929C197B87FE0040B0F2 /* BeaconViewController.xib in Resources */,
 				5E01E49D197B28E000747B33 /* ViewController.xib in Resources */,
 				E417FD19197B1EC100F8BDE6 /* Images.xcassets in Resources */,
@@ -520,6 +525,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				076AF5C1197B881B00A23A5B /* UIImageView+HighlightedWebCache.m in Sources */,
+				076AF5BF197B881B00A23A5B /* UIImage+MultiFormat.m in Sources */,
+				073913A8197B94C200C81BC8 /* SFHFKeychainUtils.m in Sources */,
+				076AF5BA197B881B00A23A5B /* SDWebImageDownloaderOperation.m in Sources */,
+				073913BF197BA23E00C81BC8 /* qrencode.c in Sources */,
 				E4670BD5197BE35D005BD0C5 /* YOTestViewController.m in Sources */,
 				5EFE5D12197B75D300002A23 /* LoginViewController.m in Sources */,
 				073913C2197BA23E00C81BC8 /* rscode.c in Sources */,
@@ -531,6 +541,19 @@
 				073913C1197BA23E00C81BC8 /* qrspec.c in Sources */,
 				073913BE197BA23E00C81BC8 /* mask.c in Sources */,
 				E417FD17197B1EC100F8BDE6 /* YOAppDelegate.m in Sources */,
+				076AF5C0197B881B00A23A5B /* UIImage+WebP.m in Sources */,
+				073913C0197BA23E00C81BC8 /* qrinput.c in Sources */,
+				076AF5C2197B881B00A23A5B /* UIImageView+WebCache.m in Sources */,
+				5E090A7D197BA42400BBE343 /* YoCardViewController.m in Sources */,
+				073913C4197BA23E00C81BC8 /* UIImage+MDQRCode.m in Sources */,
+				073913C3197BA23E00C81BC8 /* split.c in Sources */,
+				073913A5197B93EA00C81BC8 /* YOCurrentUserManager.m in Sources */,
+				076AF5B9197B881B00A23A5B /* SDWebImageDownloader.m in Sources */,
+				076AF5C3197B881B00A23A5B /* UIView+WebCacheOperation.m in Sources */,
+				076AF5BD197B881B00A23A5B /* UIButton+WebCache.m in Sources */,
+				073913AC197B97D400C81BC8 /* YOUser.m in Sources */,
+				076AF5B4197B881B00A23A5B /* MKAnnotationView+WebCache.m in Sources */,
+				076AF5B5197B881B00A23A5B /* NSData+ImageContentType.m in Sources */,
 				E4D192A5197BAAF90040B0F2 /* BluetoothManager.m in Sources */,
 				E4D1929F197B88D30040B0F2 /* APLDefaults.m in Sources */,
 				E4D1929B197B87FE0040B0F2 /* BeaconViewController.m in Sources */,

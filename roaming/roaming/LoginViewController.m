@@ -9,6 +9,8 @@
 #import "LoginViewController.h"
 #import "UIImageView+WebCache.h"
 #import "YOAppDelegate.h"
+#import "YOUser.h"
+#import "UIImage+MDQRCode.h"
 #import "BeaconViewController.h"
 #import "YOTestViewController.h"
 
