@@ -9,8 +9,6 @@
                 <outlet property="backgroundImage" destination="Bur-it-Y1G" id="E3h-eI-EqN"/>
                 <outlet property="loginButton" destination="m1l-6v-eGk" id="tTZ-cG-xqI"/>
                 <outlet property="loginButtonView" destination="xOn-FG-L9D" id="GTl-nl-Kea"/>
-                <outlet property="qrCodeImageView" destination="Nky-7H-cUL" id="Daz-Nf-MnG"/>
-                <outlet property="qrCodeView" destination="dvR-8G-fAS" id="pYO-Ar-41f"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

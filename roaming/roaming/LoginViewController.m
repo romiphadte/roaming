@@ -11,15 +11,13 @@
 #import "YOAppDelegate.h"
 #import "YOUser.h"
 #import "UIImage+MDQRCode.h"
-#import "BeaconViewController.h"
+#import "YOBeaconViewController.h"
 #import "YOTestViewController.h"
 #import "UIImage+animatedGIF.h"
 
 @interface LoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
-@property (weak, nonatomic) IBOutlet UIImageView *qrCodeImageView;
-@property (weak, nonatomic) IBOutlet UIView *qrCodeView;
 @property (weak, nonatomic) IBOutlet UIView *loginButtonView;
 
 @end
@@ -63,10 +61,6 @@
     [self grantFacebookPermission];
 }
 - (IBAction)goToBeacon:(id)sender {
-    BeaconViewController* new=[[BeaconViewController alloc]init]; //initWithNibName:@"YOTestViewController.h" bundle:nil ];
-    [self presentViewController:new animated:YES completion:^{
-        NSLog(@"Showing BeaconViewController");
-    }];
 }
 
 -(IBAction)loginManually:(id)sender{
@@ -80,9 +74,10 @@
     NSString *name = [[PFUser currentUser] objectForKey:@"name"];
     NSString *username = [[PFUser currentUser] objectForKey:@"username"];
     if (name) {
-        self.qrCodeImageView.image = [UIImage mdQRCodeForString:username size:60];
+        YOBeaconViewController *beaconVC = [[YOBeaconViewController alloc] initWithNibName:@"YOBeaconViewController" bundle:[NSBundle mainBundle] username:username];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:beaconVC];
         self.loginButtonView.alpha = 0;
-        self.qrCodeView.alpha = 1;
+        [self presentViewController:nav animated:YES completion:nil];
     }
 }
 
@@ -107,7 +102,9 @@
 - (void)viewDidLoad {
     [self loadBackground];
     [[NSNotificationCenter defaultCenter] addObserverForName:@"EnteredInfo" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
-        [self viewWillAppear:YES];
+        YOBeaconViewController *beaconVC = [[YOBeaconViewController alloc] initWithNibName:@"YOBeaconViewController" bundle:[NSBundle mainBundle] username:note.object];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:beaconVC];
+        [self presentViewController:nav animated:YES completion:nil];
     }];
 }
 

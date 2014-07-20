@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Romi Phadte. All rights reserved.
 //
 
+#import <Parse/Parse.h>
+
 #import "BluetoothManager.h"
 @import CoreLocation;
 
@@ -157,6 +159,20 @@ NSNumber *power = nil;
     
     NSLog(@"Closest ID is %@",closest);
     NSLog(@"Shortest distance is %.2fm", distance );
+    PFPush *push = [PFPush push];
+    [push setChannel:[NSString stringWithFormat:@"glass%@", [[PFUser currentUser] objectForKey:@"username"]]];
+    if(closest.length>0n){
+        PFQuery *query = [PFUser query];
+        [query whereKey:@"username" equalTo:closest];
+        [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+            [push setData:@{@"user":[object objectForKey:@"username"],
+                            @"name":[object objectForKey:@"name"],
+                            @"email":[object objectForKey:@"email_address"],
+                            @"phone_number":[object objectForKey:@"phone_number"],
+                            @"profile_picture_url":((PFFile *)[object objectForKey:@"profile_picture"]).url}];
+            [push sendPushInBackground];
+        }];
+    }
 }
 
 @end
