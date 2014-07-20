@@ -41,6 +41,8 @@
 }
 
 -(IBAction)launchQrCode:(id)sender{
-    self.qrcode.image = [UIImage mdQRCodeForString:[NSString stringWithFormat:@"%i",[YOUser userWithPFUser:[PFUser currentUser]].roamingId] size:60];
+    NSString *username = [[PFUser currentUser] objectForKey:@"username"];
+    
+    self.qrcode.image = [UIImage mdQRCodeForString:username size:60];
 }
 @end

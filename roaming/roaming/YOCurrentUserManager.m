@@ -69,7 +69,7 @@
         PFUser *currentUser = [PFUser currentUser];
         [currentUser setObject:user.name forKey:@"name"];
         [currentUser setObject:user.fbid forKey:@"fbid"];
-        [currentUser setObject:[NSNumber numberWithInteger:(user.roamingId)] forKey:@"roamingId"];
+        [currentUser setObject:user.roamingId forKey:@"roamingId"];
         [currentUser setObject:user.titleAndCompany forKey:@"title_and_company"];
         [currentUser setObject:user.email forKey:@"email"];
         [currentUser setObject:user.phoneNumber forKey:@"phone_number"];
