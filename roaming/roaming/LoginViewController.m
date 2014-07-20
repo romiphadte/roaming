@@ -26,7 +26,7 @@
 
 - (void)grantFacebookPermission {
     [self.view setUserInteractionEnabled:NO];
-    [FBSession openActiveSessionWithReadPermissions:@[@"basic_info"]
+    [FBSession openActiveSessionWithReadPermissions:@[@"basic_info",@"email"]
                                        allowLoginUI:YES
                                   completionHandler:
      ^(FBSession *session, FBSessionState state, NSError *error) {

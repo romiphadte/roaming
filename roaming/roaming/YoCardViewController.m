@@ -97,11 +97,24 @@
     
 }
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(doneButtonPressed)];
+    self.navigationItem.rightBarButtonItem = anotherButton;
+    
     [UIView animateWithDuration:.5 animations:^{
         [self.greyLabelView setFrame:CGRectMake(0, 0, 320, 640)];
     }];
     return YES;
 }
+
+-(void)doneButtonPressed{
+    [self.view endEditing:YES];
+    self.navigationItem.rightBarButtonItem = nil;
+    [UIView animateWithDuration:.5 animations:^{
+        [self.greyLabelView setFrame:CGRectMake(0, 318, 320, 191)];
+    }];
+    
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [self.view endEditing:YES];
     [UIView animateWithDuration:.5 animations:^{
@@ -142,6 +155,8 @@
     //UIGraphicsBeginImageContext(newSize);
     // In next line, pass 0.0 to use the current device's pixel scaling factor (and thus account for Retina resolution).
     // Pass 1.0 to force exact pixel size.
+    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Show" style:UIBarButtonItemStylePlain target:self action:@selector(refreshPropertyList:)];
+    self.navigationItem.rightBarButtonItem = anotherButton;
     UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
     [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
