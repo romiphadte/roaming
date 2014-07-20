@@ -76,7 +76,7 @@
     currentUsr.phoneNumber = self.number.text;
     if (!currentUsr.roamingId){
         PFQuery *userCount =[PFQuery queryWithClassName:@"User"];
-        currentUsr.roamingId = [userCount countObjects]+1;
+        currentUsr.roamingId = [NSString stringWithFormat:@"%i", [userCount countObjects]+1];
     }
     [[YOCurrentUserManager sharedCurrentUserManager]saveDataToParseWithYOUser:currentUsr];
     cardTableViewController *cardVC = [[cardTableViewController alloc]initWithNibName:@"cardTableViewController" bundle:nil];
