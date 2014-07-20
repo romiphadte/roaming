@@ -30,7 +30,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.profileImage setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?type=small&width=640&height=640",self.result[@"id"]]]]]];
+    if (self.facebookLogin){
+        [self.profileImage setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?type=small&width=640&height=640",self.result[@"id"]]]]]];
+        [self.email setText:self.result[@"email"]];
+        [self.name setText:self.result[@"name"]];
+    }
+    else{
+        
+    }
+    
     YOUser *currentUsr = [YOUser userWithPFUser:[PFUser currentUser]];
     if (currentUsr.name) [self.name setText:currentUsr.name];
     if (currentUsr.titleAndCompany) [self.company setText:currentUsr.titleAndCompany];

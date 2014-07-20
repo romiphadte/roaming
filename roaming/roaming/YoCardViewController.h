@@ -11,6 +11,7 @@
 @interface YoCardViewController : UIViewController
 @property IBOutlet UIImageView *profileImage;
 @property NSDictionary *result;
+@property BOOL facebookLogin;
 @property IBOutlet UITextField *name;
 @property IBOutlet UITextField *company;
 @property IBOutlet UITextField *email;

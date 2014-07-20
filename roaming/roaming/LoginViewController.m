@@ -59,6 +59,12 @@
     [self grantFacebookPermission];
 }
 
+-(IBAction)loginManually:(id)sender{
+    YoCardViewController *yoCard = [[YoCardViewController alloc]initWithNibName:@"YoCardViewController" bundle:nil];
+    [yoCard setFacebookLogin:NO];
+    [self.navigationController presentViewController:yoCard animated:YES completion:nil];
+}
+
 - (void)permissionGranted {
     [UIView animateWithDuration:0.2 animations:^{
         self.loginButton.alpha = 0;
@@ -87,6 +93,7 @@
                                                                if (!user.name) {
                                                                    YoCardViewController *yoCard = [[YoCardViewController alloc]initWithNibName:@"YoCardViewController" bundle:nil];
                                                                    [yoCard setResult:result];
+                                                                   [yoCard setFacebookLogin:YES];
                                                                    [self.navigationController presentViewController:yoCard animated:YES completion:nil];
                                                                }
                                                                else{
