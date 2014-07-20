@@ -14,7 +14,10 @@
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *titleAndCompany;
 @property (strong, nonatomic) NSString *email;
+@property (strong, nonatomic) NSString *fbid;
 @property (strong, nonatomic) NSString *phoneNumber;
+@property NSInteger roamingId;
+
 // If uploading user
 @property (strong, nonatomic) UIImage *profilePicture;
 // If retrieving user

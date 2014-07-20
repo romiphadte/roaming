@@ -13,10 +13,12 @@
 @implementation YOUser
 
 + (YOUser *)userWithPFUser:(PFUser *)user {
-    YOUser *yoUser = [self init];
+    YOUser *yoUser = [[self alloc] init];
     yoUser.name = [user objectForKey:@"name"];
+    yoUser.fbid = [user objectForKey:@"fbid"];
     yoUser.titleAndCompany = [user objectForKey:@"title_and_company"];
     yoUser.email = [user objectForKey:@"email"];
+    yoUser.roamingId = [[user objectForKey:@"roamingId"]integerValue];
     yoUser.phoneNumber = [user objectForKey:@"phone_number"];
     PFFile *imageFile = [user objectForKey:@"profile_picture"];
     yoUser.imageFile = imageFile;

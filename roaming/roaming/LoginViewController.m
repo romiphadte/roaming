@@ -63,6 +63,8 @@
     [UIView animateWithDuration:0.2 animations:^{
         self.loginButton.alpha = 0;
         self.loggedInUserView.alpha = 1;
+    } completion:^(BOOL finished) {
+
     }];
     [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
         if (result) {
@@ -81,6 +83,17 @@
                                                                self.loggedInUserProfilePicture.alpha = 1;
                                                                self.imageLoadingIndicator.alpha = 0;
                                                            } completion:^(BOOL finished) {
+                                                               YOUser *user = [YOUser userWithPFUser:[PFUser currentUser]];
+                                                               if (!user.name) {
+                                                                   YoCardViewController *yoCard = [[YoCardViewController alloc]initWithNibName:@"YoCardViewController" bundle:nil];
+                                                                   [yoCard setResult:result];
+                                                                   [self.navigationController presentViewController:yoCard animated:YES completion:nil];
+                                                               }
+                                                               else{
+                                                                   cardTableViewController *cardVC = [[cardTableViewController alloc]initWithNibName:@"cardTableViewController" bundle:nil];
+                                                                   [self.navigationController presentViewController:cardVC animated:YES completion:nil];
+                                                               }
+
                                                                [self.imageLoadingIndicator stopAnimating];
                                                            }];
                                                        }];
