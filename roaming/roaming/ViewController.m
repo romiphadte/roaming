@@ -7,9 +7,7 @@
 //
 
 #import "ViewController.h"
-@interface ViewController ()
-
-@end
+#import "UIImage+MDQRCode.h"
 
 @implementation ViewController
 
@@ -35,6 +33,7 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    
 }
 
 @end

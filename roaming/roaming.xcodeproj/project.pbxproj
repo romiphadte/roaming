@@ -12,6 +12,14 @@
 		073913A5197B93EA00C81BC8 /* YOCurrentUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 073913A4197B93EA00C81BC8 /* YOCurrentUserManager.m */; };
 		073913A8197B94C200C81BC8 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 073913A6197B94C200C81BC8 /* SFHFKeychainUtils.m */; };
 		073913AC197B97D400C81BC8 /* YOUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 073913AB197B97D400C81BC8 /* YOUser.m */; };
+		073913BD197BA23E00C81BC8 /* bitstream.c in Sources */ = {isa = PBXBuildFile; fileRef = 073913AD197BA23E00C81BC8 /* bitstream.c */; };
+		073913BE197BA23E00C81BC8 /* mask.c in Sources */ = {isa = PBXBuildFile; fileRef = 073913AF197BA23E00C81BC8 /* mask.c */; };
+		073913BF197BA23E00C81BC8 /* qrencode.c in Sources */ = {isa = PBXBuildFile; fileRef = 073913B1197BA23E00C81BC8 /* qrencode.c */; };
+		073913C0197BA23E00C81BC8 /* qrinput.c in Sources */ = {isa = PBXBuildFile; fileRef = 073913B3197BA23E00C81BC8 /* qrinput.c */; };
+		073913C1197BA23E00C81BC8 /* qrspec.c in Sources */ = {isa = PBXBuildFile; fileRef = 073913B5197BA23E00C81BC8 /* qrspec.c */; };
+		073913C2197BA23E00C81BC8 /* rscode.c in Sources */ = {isa = PBXBuildFile; fileRef = 073913B7197BA23E00C81BC8 /* rscode.c */; };
+		073913C3197BA23E00C81BC8 /* split.c in Sources */ = {isa = PBXBuildFile; fileRef = 073913B9197BA23E00C81BC8 /* split.c */; };
+		073913C4197BA23E00C81BC8 /* UIImage+MDQRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 073913BC197BA23E00C81BC8 /* UIImage+MDQRCode.m */; };
 		076AF5B4197B881B00A23A5B /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 076AF594197B881B00A23A5B /* MKAnnotationView+WebCache.m */; };
 		076AF5B5197B881B00A23A5B /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 076AF596197B881B00A23A5B /* NSData+ImageContentType.m */; };
 		076AF5B6197B881B00A23A5B /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 076AF598197B881B00A23A5B /* SDImageCache.m */; };
@@ -78,6 +86,22 @@
 		073913A7197B94C200C81BC8 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
 		073913AA197B97D400C81BC8 /* YOUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YOUser.h; sourceTree = "<group>"; };
 		073913AB197B97D400C81BC8 /* YOUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YOUser.m; sourceTree = "<group>"; };
+		073913AD197BA23E00C81BC8 /* bitstream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bitstream.c; sourceTree = "<group>"; };
+		073913AE197BA23E00C81BC8 /* bitstream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bitstream.h; sourceTree = "<group>"; };
+		073913AF197BA23E00C81BC8 /* mask.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mask.c; sourceTree = "<group>"; };
+		073913B0197BA23E00C81BC8 /* mask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mask.h; sourceTree = "<group>"; };
+		073913B1197BA23E00C81BC8 /* qrencode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = qrencode.c; sourceTree = "<group>"; };
+		073913B2197BA23E00C81BC8 /* qrencode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qrencode.h; sourceTree = "<group>"; };
+		073913B3197BA23E00C81BC8 /* qrinput.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = qrinput.c; sourceTree = "<group>"; };
+		073913B4197BA23E00C81BC8 /* qrinput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qrinput.h; sourceTree = "<group>"; };
+		073913B5197BA23E00C81BC8 /* qrspec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = qrspec.c; sourceTree = "<group>"; };
+		073913B6197BA23E00C81BC8 /* qrspec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qrspec.h; sourceTree = "<group>"; };
+		073913B7197BA23E00C81BC8 /* rscode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rscode.c; sourceTree = "<group>"; };
+		073913B8197BA23E00C81BC8 /* rscode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rscode.h; sourceTree = "<group>"; };
+		073913B9197BA23E00C81BC8 /* split.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = split.c; sourceTree = "<group>"; };
+		073913BA197BA23E00C81BC8 /* split.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = split.h; sourceTree = "<group>"; };
+		073913BB197BA23E00C81BC8 /* UIImage+MDQRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MDQRCode.h"; sourceTree = "<group>"; };
+		073913BC197BA23E00C81BC8 /* UIImage+MDQRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MDQRCode.m"; sourceTree = "<group>"; };
 		076AF593197B881B00A23A5B /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		076AF594197B881B00A23A5B /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		076AF595197B881B00A23A5B /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -195,6 +219,29 @@
 			name = SFHFKeychainUtils;
 			sourceTree = "<group>";
 		};
+		073913C5197BA24300C81BC8 /* QR Code */ = {
+			isa = PBXGroup;
+			children = (
+				073913AD197BA23E00C81BC8 /* bitstream.c */,
+				073913AE197BA23E00C81BC8 /* bitstream.h */,
+				073913AF197BA23E00C81BC8 /* mask.c */,
+				073913B0197BA23E00C81BC8 /* mask.h */,
+				073913B1197BA23E00C81BC8 /* qrencode.c */,
+				073913B2197BA23E00C81BC8 /* qrencode.h */,
+				073913B3197BA23E00C81BC8 /* qrinput.c */,
+				073913B4197BA23E00C81BC8 /* qrinput.h */,
+				073913B5197BA23E00C81BC8 /* qrspec.c */,
+				073913B6197BA23E00C81BC8 /* qrspec.h */,
+				073913B7197BA23E00C81BC8 /* rscode.c */,
+				073913B8197BA23E00C81BC8 /* rscode.h */,
+				073913B9197BA23E00C81BC8 /* split.c */,
+				073913BA197BA23E00C81BC8 /* split.h */,
+				073913BB197BA23E00C81BC8 /* UIImage+MDQRCode.h */,
+				073913BC197BA23E00C81BC8 /* UIImage+MDQRCode.m */,
+			);
+			name = "QR Code";
+			sourceTree = "<group>";
+		};
 		076AF5C4197B882000A23A5B /* SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +304,7 @@
 		E417FD05197B1EC000F8BDE6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				073913C5197BA24300C81BC8 /* QR Code */,
 				073913A9197B94CD00C81BC8 /* SFHFKeychainUtils */,
 				076AF5C4197B882000A23A5B /* SDWebImage */,
 				5EFE5D0D197B73A000002A23 /* FacebookSDK.framework */,
@@ -437,14 +485,22 @@
 				076AF5BF197B881B00A23A5B /* UIImage+MultiFormat.m in Sources */,
 				073913A8197B94C200C81BC8 /* SFHFKeychainUtils.m in Sources */,
 				076AF5BA197B881B00A23A5B /* SDWebImageDownloaderOperation.m in Sources */,
+				073913BF197BA23E00C81BC8 /* qrencode.c in Sources */,
 				5EFE5D12197B75D300002A23 /* LoginViewController.m in Sources */,
+				073913C2197BA23E00C81BC8 /* rscode.c in Sources */,
 				076AF5B7197B881B00A23A5B /* SDWebImageCompat.m in Sources */,
 				076AF5BE197B881B00A23A5B /* UIImage+GIF.m in Sources */,
+				073913BD197BA23E00C81BC8 /* bitstream.c in Sources */,
 				076AF5BC197B881B00A23A5B /* SDWebImagePrefetcher.m in Sources */,
 				5E01E49C197B28E000747B33 /* ViewController.m in Sources */,
+				073913C1197BA23E00C81BC8 /* qrspec.c in Sources */,
+				073913BE197BA23E00C81BC8 /* mask.c in Sources */,
 				E417FD17197B1EC100F8BDE6 /* YOAppDelegate.m in Sources */,
 				076AF5C0197B881B00A23A5B /* UIImage+WebP.m in Sources */,
+				073913C0197BA23E00C81BC8 /* qrinput.c in Sources */,
 				076AF5C2197B881B00A23A5B /* UIImageView+WebCache.m in Sources */,
+				073913C4197BA23E00C81BC8 /* UIImage+MDQRCode.m in Sources */,
+				073913C3197BA23E00C81BC8 /* split.c in Sources */,
 				073913A5197B93EA00C81BC8 /* YOCurrentUserManager.m in Sources */,
 				076AF5B9197B881B00A23A5B /* SDWebImageDownloader.m in Sources */,
 				076AF5C3197B881B00A23A5B /* UIView+WebCacheOperation.m in Sources */,
