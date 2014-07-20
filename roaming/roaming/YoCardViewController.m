@@ -126,16 +126,29 @@
         currentUsr.fbid = self.result[@"id"];
         currentUsr.titleAndCompany = self.company.text;
         currentUsr.email = self.email.text;
-        currentUsr.profilePicture = self.profileImage.image;
+        
+        currentUsr.profilePicture = [self imageWithImage:self.profileImage.image scaledToSize:CGSizeMake(256, 256)];
         currentUsr.phoneNumber = self.number.text;
         [[YOCurrentUserManager sharedCurrentUserManager] saveDataToParseWithYOUser:currentUsr];
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self.navigationController popViewControllerAnimated:YES];
     }
     else{
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Fill out information" message:@"The information you've provided is incomplete." delegate:self cancelButtonTitle:@"okay" otherButtonTitles:nil, nil];
         [alert show];
     }
 }
+
+- (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
+    //UIGraphicsBeginImageContext(newSize);
+    // In next line, pass 0.0 to use the current device's pixel scaling factor (and thus account for Retina resolution).
+    // Pass 1.0 to force exact pixel size.
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
