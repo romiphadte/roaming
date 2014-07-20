@@ -23,6 +23,9 @@ CBPeripheralManager *peripheralManager = nil;
 CLBeaconRegion *region = nil;
 NSNumber *power = nil;
 
+int lastID=-1;
+
+
 - (id)initWith:(int)value
 {
     NSLog(@"yee");
@@ -165,11 +168,21 @@ NSNumber *power = nil;
         PFQuery *query = [PFUser query];
         [query whereKey:@"username" equalTo:closest];
         [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-            [push setData:@{@"user":[object objectForKey:@"username"],
-                            @"name":[object objectForKey:@"name"],
-                            @"email":[object objectForKey:@"email_address"],
-                            @"phone_number":[object objectForKey:@"phone_number"],
-                            @"profile_picture_url":((PFFile *)[object objectForKey:@"profile_picture"]).url}];
+            if (((PFFile *)[object objectForKey:@"profile_picture"]).url){
+                [push setData:@{@"action": @"com.github.barcodeeye.UPDATE_STATUS",
+                                @"user":[object objectForKey:@"username"],
+                                @"name":[object objectForKey:@"name"],
+                                @"email":[object objectForKey:@"email_address"],
+                                @"phone_number":[object objectForKey:@"phone_number"],
+                                @"profile_picture_url":((PFFile *)[object objectForKey:@"profile_picture"]).url}];
+            }
+            else{
+               [push setData:@{@"action": @"com.github.barcodeeye.UPDATE_STATUS",
+                               @"user":[object objectForKey:@"username"],
+                                @"name":[object objectForKey:@"name"],
+                                @"email":[object objectForKey:@"email_address"],
+                               @"phone_number":[object objectForKey:@"phone_number"]}];
+            }
             [push sendPushInBackground];
         }];
     }

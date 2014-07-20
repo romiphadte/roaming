@@ -8,7 +8,9 @@
 
 #import "YOBeaconViewController.h"
 #import "UIImage+MDQRCode.h"
+#import "SFHFKeychainUtils.h"
 #import "BluetoothManager.h"
+#import <Parse/Parse.h>
 
 @interface YOBeaconViewController ()
 
@@ -36,6 +38,12 @@
     [super viewDidLoad];
     self.qrCodeImageView.image = [UIImage mdQRCodeForString:self.username size:60];
     self.qrCodeView.alpha = 1;
+}
+
+- (IBAction)logout:(id)sender {
+    [SFHFKeychainUtils deleteItemForUsername:@"username" andServiceName:@"username" error:nil];
+    [PFUser logOut];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void) viewWillAppear:(BOOL)animated{
