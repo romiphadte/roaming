@@ -8,7 +8,9 @@
 
 #import "YOBeaconViewController.h"
 #import "UIImage+MDQRCode.h"
+#import "SFHFKeychainUtils.h"
 #import "BluetoothManager.h"
+#import <Parse/Parse.h>
 
 @interface YOBeaconViewController ()
 
@@ -16,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIView *qrCodeView;
 @property (strong, nonatomic) NSString *username;
 @property BluetoothManager *manager;
+@property (weak, nonatomic) IBOutlet UIButton *logoutButton;
 
 @end
 
@@ -36,6 +39,18 @@
     [super viewDidLoad];
     self.qrCodeImageView.image = [UIImage mdQRCodeForString:self.username size:60];
     self.qrCodeView.alpha = 1;
+    [self.navigationItem setTitle:@"Scan To Pair"];
+    self.navigationController.navigationBar.barTintColor = [UIColor roa_blueColor];
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    self.logoutButton.layer.cornerRadius = self.logoutButton.frame.size.height/2.0;
+    self.logoutButton.backgroundColor = [UIColor darkGrayColor];
+    
+}
+
+- (IBAction)logout:(id)sender {
+    [SFHFKeychainUtils deleteItemForUsername:@"username" andServiceName:@"username" error:nil];
+    [PFUser logOut];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void) viewWillAppear:(BOOL)animated{

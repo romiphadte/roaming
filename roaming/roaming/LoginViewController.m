@@ -13,6 +13,7 @@
 #import "UIImage+MDQRCode.h"
 #import "YOBeaconViewController.h"
 #import "YOTestViewController.h"
+#import "UIImage+animatedGIF.h"
 
 @interface LoginViewController ()
 
@@ -25,7 +26,7 @@
 
 - (void)grantFacebookPermission {
     [self.view setUserInteractionEnabled:NO];
-    [FBSession openActiveSessionWithReadPermissions:@[@"basic_info"]
+    [FBSession openActiveSessionWithReadPermissions:@[@"basic_info",@"email"]
                                        allowLoginUI:YES
                                   completionHandler:
      ^(FBSession *session, FBSessionState state, NSError *error) {
@@ -65,7 +66,7 @@
 -(IBAction)loginManually:(id)sender{
     YoCardViewController *yoCard = [[YoCardViewController alloc]initWithNibName:@"YoCardViewController" bundle:nil];
     [yoCard setFacebookLogin:NO];
-    [self.navigationController presentViewController:yoCard animated:YES completion:nil];
+    [self.navigationController pushViewController:yoCard animated:YES];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -75,7 +76,6 @@
     if (name) {
         YOBeaconViewController *beaconVC = [[YOBeaconViewController alloc] initWithNibName:@"YOBeaconViewController" bundle:[NSBundle mainBundle] username:username];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:beaconVC];
-        self.loginButtonView.alpha = 0;
         [self presentViewController:nav animated:YES completion:nil];
     }
 }
@@ -99,11 +99,40 @@
 }
 
 - (void)viewDidLoad {
+    [self loadBackground];
     [[NSNotificationCenter defaultCenter] addObserverForName:@"EnteredInfo" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
         YOBeaconViewController *beaconVC = [[YOBeaconViewController alloc] initWithNibName:@"YOBeaconViewController" bundle:[NSBundle mainBundle] username:note.object];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:beaconVC];
         [self presentViewController:nav animated:YES completion:nil];
     }];
+}
+- (UIImage *)resizeImage:(UIImage*)image newSize:(CGSize)newSize {
+    CGRect newRect = CGRectIntegral(CGRectMake(0, 0, newSize.width, newSize.height));
+    CGImageRef imageRef = image.CGImage;
+    
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    // Set the quality level to use when rescaling
+    CGContextSetInterpolationQuality(context, kCGInterpolationHigh);
+    CGAffineTransform flipVertical = CGAffineTransformMake(1, 0, 0, -1, 0, newSize.height);
+    
+    CGContextConcatCTM(context, flipVertical);
+    // Draw into the context; this scales the image
+    CGContextDrawImage(context, newRect, imageRef);
+    
+    // Get the resized image from the context and a UIImage
+    CGImageRef newImageRef = CGBitmapContextCreateImage(context);
+    UIImage *newImage = [UIImage imageWithCGImage:newImageRef];
+    
+    CGImageRelease(newImageRef);
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+-(void)loadBackground{
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"newyork" withExtension:@"gif"];
+    self.backgroundImage.image = [UIImage animatedImageWithAnimatedGIFData:[NSData dataWithContentsOfURL:url]];
 }
 
 @end

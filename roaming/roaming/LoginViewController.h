@@ -11,5 +11,5 @@
 #import "YoCardViewController.h"
 
 @interface LoginViewController : UIViewController
-
+@property IBOutlet UIImageView *backgroundImage;
 @end

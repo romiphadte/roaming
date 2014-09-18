@@ -15,6 +15,8 @@
 @property NSMutableDictionary *beacons;
 @property CLLocationManager *locationManager;
 @property NSMutableDictionary *rangedRegions;
+
+@property NSMutableDictionary *previousLocations;
 @end
 
 @implementation BluetoothManager
@@ -22,11 +24,15 @@
 CBPeripheralManager *peripheralManager = nil;
 CLBeaconRegion *region = nil;
 NSNumber *power = nil;
+double CLOSERANGE=0.7;
+//int lastID=-1;
+
 
 - (id)initWith:(int)value
 {
     NSLog(@"yee");
     if (self) {
+        _previousLocations=[[NSMutableDictionary alloc] init];
         self.uuid = [APLDefaults sharedDefaults].defaultProximityUUID;
         self.major = [NSNumber numberWithShort:1];
         self.minor = [NSNumber numberWithShort:value];
@@ -145,34 +151,52 @@ NSNumber *power = nil;
 - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
 {
     NSString *closest=@"";
-    CLLocationAccuracy distance=999999999;
     
     for (CLBeacon* aBeacon in beacons){
         NSLog(@"Can see these ids");
         NSLog(@"%@",aBeacon.minor);
-        NSLog(@"Acc: %.2fm",aBeacon.accuracy);
-        if(aBeacon.accuracy<distance){
-            closest=[aBeacon.minor stringValue];
-            distance=aBeacon.accuracy;
+        CLLocationAccuracy olddistance=999999999;
+        if([_previousLocations objectForKey:aBeacon.minor]){
+            olddistance=[(NSNumber *)[_previousLocations objectForKey:aBeacon.minor] doubleValue];
         }
+        [_previousLocations setObject:[NSNumber numberWithDouble:(double)aBeacon.accuracy]forKey:aBeacon.minor];
+        if(olddistance>CLOSERANGE && aBeacon.accuracy<CLOSERANGE){
+            NSLog(@"Doing a post");
+            NSLog(@"Acc: %.2fm",aBeacon.accuracy);
+            closest=[aBeacon.minor stringValue];
+            //distance=aBeacon.accuracy;
+            
+            PFPush *push = [PFPush push];
+            [push setChannel:[NSString stringWithFormat:@"glass%@", [[PFUser currentUser] objectForKey:@"username"]]];
+            PFQuery *query = [PFUser query];
+            [query whereKey:@"username" equalTo:closest];
+            [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+                if (((PFFile *)[object objectForKey:@"profile_picture"]).url){
+                    [push setData:@{@"action": @"com.github.barcodeeye.UPDATE_STATUS",
+                                    @"user":[object objectForKey:@"username"],
+                                    @"name":[object objectForKey:@"name"],
+                                    @"email":[object objectForKey:@"email_address"],
+                                    @"phone_number":[object objectForKey:@"phone_number"],
+                                    @"profile_picture_url":((PFFile *)[object objectForKey:@"profile_picture"]).url,
+                                    @"title":[object objectForKey:@"title_and_company"]}];
+                }
+                else{
+                    [push setData:@{@"action": @"com.github.barcodeeye.UPDATE_STATUS",
+                                    @"user":[object objectForKey:@"username"],
+                                    @"name":[object objectForKey:@"name"],
+                                    @"email":[object objectForKey:@"email_address"],
+                                    @"phone_number":[object objectForKey:@"phone_number"],
+                                    @"title":[object objectForKey:@"title_and_company"]}];
+                }
+                [push sendPushInBackground];
+            }];
+        }
+        
     }
     
-    NSLog(@"Closest ID is %@",closest);
-    NSLog(@"Shortest distance is %.2fm", distance );
-    PFPush *push = [PFPush push];
-    [push setChannel:[NSString stringWithFormat:@"glass%@", [[PFUser currentUser] objectForKey:@"username"]]];
-    if(closest.length>0n){
-        PFQuery *query = [PFUser query];
-        [query whereKey:@"username" equalTo:closest];
-        [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-            [push setData:@{@"user":[object objectForKey:@"username"],
-                            @"name":[object objectForKey:@"name"],
-                            @"email":[object objectForKey:@"email_address"],
-                            @"phone_number":[object objectForKey:@"phone_number"],
-                            @"profile_picture_url":((PFFile *)[object objectForKey:@"profile_picture"]).url}];
-            [push sendPushInBackground];
-        }];
-    }
+// NSLog(@"Closest ID is %@",closest);
+//    NSLog(@"Shortest distance is %.2fm", distance );
+    
 }
 
 @end
